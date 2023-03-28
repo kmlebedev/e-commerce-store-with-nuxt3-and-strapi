@@ -13,6 +13,9 @@
     "sass": "^1.60.0"
   },
   "dependencies": {
+    "@pinia/nuxt": "^0.4.7",
+    "@vueuse/core": "^9.13.0",
+    "pinia": "^2.0.33",
     "vue3-carousel": "^0.2.14"
   }
 }

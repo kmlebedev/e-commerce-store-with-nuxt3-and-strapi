@@ -1,3 +1,9 @@
+<script setup>
+import { storeToRefs } from 'pinia'
+import { useCartStore } from '~/store/cart.ts'
+const cartStore = useCartStore()
+const { cartList } = storeToRefs(cartStore)
+</script>
 <template>
   <header class="header">
     <div class="header-top">
@@ -40,24 +46,6 @@
                   <div class="text">
                     <span>+8801658 874521</span>
                   </div>
-                </div>
-              </div>
-              <div class="header-top-switcher">
-                <div class="language">
-                  <select>
-                    <option data-display="English">English</option>
-                    <option value="1">Arabic</option>
-                    <option value="2">Aramaic</option>
-                    <option value="4">Bangla</option>
-                  </select>
-                </div>
-                <div class="currency">
-                  <select>
-                    <option data-display="Currency">USD</option>
-                    <option value="1">BDT</option>
-                    <option value="2">SNG</option>
-                    <option value="4">ERU</option>
-                  </select>
                 </div>
               </div>
             </div>
@@ -149,7 +137,7 @@
                             stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                     </g>
                   </svg>
-                    <span class="cart">3</span>
+                    <span class="cart">{{ cartList.length }}</span>
                   </a>
                 </li>
                 <li>
@@ -272,7 +260,7 @@
                               stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                       </g>
                     </svg>
-                    <span class="cart">3</span>
+                    <span class="cart">{{ cartList.length }}</span>
                   </a>
                 </li>
                 <li>
