@@ -13,7 +13,6 @@ export default defineNuxtConfig({
     modules: [
         '@pinia/nuxt',
     ],
-    /*
     nitro: {
         // Production
         storage: {
@@ -23,12 +22,11 @@ export default defineNuxtConfig({
             }
         },
         // Development
-        Devstorage: {
+        devStorage: {
             db: {
                 driver: 'fs',
                 base: './data/db'
             }
         }
     }
-    */
 })

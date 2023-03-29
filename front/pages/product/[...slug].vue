@@ -1,5 +1,5 @@
 <template>
-  <BreadcrumbArea />
+  <BreadCrumb />
   <ProductDetails />
   <FeaturesSection />
 </template>

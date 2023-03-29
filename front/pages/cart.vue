@@ -1,0 +1,4 @@
+<template>
+  <BreadCrumb />
+  <Cart />
+</template>
