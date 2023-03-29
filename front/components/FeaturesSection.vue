@@ -10,7 +10,7 @@
       </div>
       <div class="features-wrapper">
         <div class="features-active">
-          <Carousel class="carousel" :items-to-show="3" :wrap-around="false" ref="carousel" v-model="currentSlide">
+          <Carousel class="carousel" :items-to-show="3" :wrap-around="false" ref="carousel">
             <Slide :index="0">
               <div class="product-item carousel__item">
                 <div class="product-item-image">
@@ -190,7 +190,6 @@
               </div>
             </div></Slide>
             <template #addons>
-              <Pagination />
               <Navigation />
             </template>
           </Carousel>
@@ -204,7 +203,6 @@
                     stroke="#1a2224" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
             </svg>
           </button>
-          <input type="number" min="0" max="9" v-model="currentSlide" />
           <button @click="next" type="button" class="carousel__next next-arrow" aria-label="Navigate to next slide">
             <svg xmlns="http://www.w3.org/2000/svg" width="9.414" height="16.828"
                  viewBox="0 0 9.414 16.828">

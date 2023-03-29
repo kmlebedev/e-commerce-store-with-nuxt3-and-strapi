@@ -2,15 +2,13 @@
 import { useCartStore } from '~/store/cart.ts'
 const cartStore = useCartStore()
 const { addValueToCartList } = cartStore
-const slug = useRoute().params.slug;
-const config = useRuntimeConfig();
+
+const slug = useRoute().params.slug
+const config = useRuntimeConfig()
 const { data: products } = await useFetch(() => `/api/products`, {
   baseURL: config.API_URL,
   headers: { "Authorization": "bearer " + config.API_TOKEN },
-  query: {
-    "filters\[Slug\][$eq]": slug,
-    "populate": "Image"
-  }
+  query: { "filters\[Slug\][$eq]": slug, "populate": "Image" }
 })
 </script>
 

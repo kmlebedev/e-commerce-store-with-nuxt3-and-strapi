@@ -13,4 +13,22 @@ export default defineNuxtConfig({
     modules: [
         '@pinia/nuxt',
     ],
+    /*
+    nitro: {
+        // Production
+        storage: {
+            db: {
+                driver: 'redis',
+                // redis connector options
+            }
+        },
+        // Development
+        Devstorage: {
+            db: {
+                driver: 'fs',
+                base: './data/db'
+            }
+        }
+    }
+    */
 })

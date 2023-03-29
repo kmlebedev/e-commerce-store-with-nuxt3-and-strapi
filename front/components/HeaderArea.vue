@@ -2,8 +2,9 @@
 import { storeToRefs } from 'pinia'
 import { useCartStore } from '~/store/cart.ts'
 const cartStore = useCartStore()
-const { cartList } = storeToRefs(cartStore)
+const { cartItems } = storeToRefs(cartStore)
 </script>
+
 <template>
   <header class="header">
     <div class="header-top">
@@ -137,7 +138,7 @@ const { cartList } = storeToRefs(cartStore)
                             stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                     </g>
                   </svg>
-                    <span class="cart">{{ cartList.length }}</span>
+                    <span class="cart">{{ cartItems.length }}</span>
                   </a>
                 </li>
                 <li>
@@ -260,7 +261,7 @@ const { cartList } = storeToRefs(cartStore)
                               stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                       </g>
                     </svg>
-                    <span class="cart">{{ cartList.length }}</span>
+                    <span class="cart">{{ cartItems.length }}</span>
                   </a>
                 </li>
                 <li>
