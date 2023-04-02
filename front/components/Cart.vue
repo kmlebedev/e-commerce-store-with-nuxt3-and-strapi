@@ -1,28 +1,26 @@
 <script setup>
 import { storeToRefs } from 'pinia'
 import { useCartStore } from '~/store/cart.ts'
-import { stringify } from 'qs'
+import useProducts from "~/composables/useProducts";
 const cartStore = useCartStore()
 const { cartItems } = storeToRefs(cartStore)
 const { fetchCart } = cartStore
+const { quantity, removeCartItem } = cartStore
 
 const config = useRuntimeConfig()
 if (process.server) {
   await fetchCart()
 }
-const {data: products} = await useFetch(() => `/api/products?` + stringify({
-  filters: {
-    id: {
-      $in: cartItems.value.length > 0 ? cartItems.value : [-1]
-    },
-  },
-  populate: "Image",
-}, {
-  encodeValuesOnly: true,
-}), {
-  baseURL: config.API_URL,
-  headers: {"Authorization": "bearer " + config.API_TOKEN},
-})
+
+const items = cartItems.value.concat()
+const products = await useProducts(items)
+function removeProductItem(idx) {
+  console.log(products.data)
+  const id = products.data[idx].id
+  products.data.splice(idx, 1)
+  removeCartItem(id)
+  console.log(products.data)
+}
 </script>
 
 <template>
@@ -65,7 +63,7 @@ const {data: products} = await useFetch(() => `/api/products?` + stringify({
             </div>
           </div>
           <div class="body">
-            <div v-if="products" v-for="item in products.data" :key="item.id" class="item">
+            <div v-if="products" v-for="(item, index) in products.data" :key="item.id" class="item">
               <div class="image">
                 <img :src="config.API_URL + item.attributes.Image.data[0].attributes.formats.thumbnail.url">
               </div>
@@ -86,7 +84,7 @@ const {data: products} = await useFetch(() => `/api/products?` + stringify({
                       </g>
                     </svg>
                   </a>
-                  <a class="del" href="#">Delete</a>
+                  <a @click.prevent="removeProductItem(index)" class="del" href="#">Delete</a>
                 </div>
               </div>
               <div class="price">
@@ -123,7 +121,7 @@ const {data: products} = await useFetch(() => `/api/products?` + stringify({
                                 stroke-width="1.4" />
                         </svg>
                       </a>
-                      <input type="text" value="1" min="1">
+                      <input type="text" :value="quantity(item.id)" min="1">
                       <a href="javascript:void(0)" class="plus"><svg
                           xmlns="http://www.w3.org/2000/svg" width="11.98" height="6.69"
                           viewBox="0 0 11.98 6.69">

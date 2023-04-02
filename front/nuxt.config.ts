@@ -28,5 +28,8 @@ export default defineNuxtConfig({
                 base: './data/db'
             }
         }
+    },
+    experimental: {
+        componentIslands: true
     }
 })

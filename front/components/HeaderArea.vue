@@ -3,7 +3,7 @@ import { storeToRefs } from 'pinia'
 import { useCartStore } from '~/store/cart.ts'
 const cartStore = useCartStore()
 const { cartItems } = storeToRefs(cartStore)
-const { pullCart } = cartStore
+const { pushCart } = cartStore
 </script>
 
 <template>
@@ -122,7 +122,7 @@ const { pullCart } = cartStore
                   </a>
                 </li>
                 <li>
-                  <a href="/cart" @click="pullCart"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                  <a href="/cart" @click="pushCart"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
                                            viewBox="0 0 22 22">
                     <g id="Icon" transform="translate(-1524 -89)">
                       <ellipse id="Ellipse_2" data-name="Ellipse 2" cx="0.909" cy="0.952"

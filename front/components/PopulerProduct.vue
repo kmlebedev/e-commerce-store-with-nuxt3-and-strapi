@@ -28,7 +28,7 @@ const { data: products } = await useFetch(() => `/api/products`, {
                                                   class="img-fluid"></a>
               <div class="cart-icon">
                 <a href="#"><i class="far fa-heart"></i></a>
-                <a href="#" @click="addValueToCartList(item.id)">
+                <a href="#" @click.prevent="addValueToCartList(item.id)">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16.75" height="16.75"
                        viewBox="0 0 16.75 16.75">
                     <g id="Your_Bag" data-name="Your Bag" transform="translate(0.75)">
