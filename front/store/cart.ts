@@ -8,11 +8,7 @@ export const useCartStore = defineStore('cartStore', () => {
         cartItems.value.push(id)
     }
     function removeCartItem(id: never) {
-        const idx = cartItems.value.indexOf(id)
-        if (idx == -1) {
-            return
-        }
-        cartItems.value.splice(idx, 1)
+        cartItems.value = cartItems.value.filter((number, i) => number != id)
         pushCart()
     }
     function quantity(id: never) {
