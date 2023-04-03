@@ -11,8 +11,7 @@
       <div class="features-wrapper">
         <div class="features-active">
           <Carousel class="carousel" :items-to-show="3" :wrap-around="false" ref="carousel">
-            <Slide :index="0">
-              <div class="product-item carousel__item">
+            <Slide :index="0"><div class="product-item carousel__item">
                 <div class="product-item-image">
                   <a href="product-details.html"><img src="/dist/images/product/05.jpg" alt="Product Name"
                                                       class="img-fluid"></a>
@@ -46,10 +45,8 @@
                   <a href="product-details.html">BERRY TYPE-II: C1N Backpack</a>
                   <span>$975</span> <del>$999</del>
                 </div>
-              </div>
-            </Slide>
-            <Slide :index="1">
-              <div class="product-item carousel__item">
+              </div></Slide>
+            <Slide :index="1"><div class="product-item carousel__item">
               <div class="product-item-image">
                 <a href="product-details.html"> <img src="/dist/images/product/04.jpg" alt="Product Name"
                                                      class="img-fluid"></a>

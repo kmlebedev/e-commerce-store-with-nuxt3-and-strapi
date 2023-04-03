@@ -21,7 +21,8 @@ const { data: products } = await useFetch(() => `/api/products`, {
             <div class="exzoom" id="exzoom">
               <div class="exzoom_img_box">
                 <ul class='exzoom_img_ul'>
-                  <li v-for="image in item.attributes.Image.data" :key="item.id"><img :src="config.API_URL + image.attributes.url" /></li>
+                  <li v-for="image in item.attributes.Image.data" :key="item.id">
+                    <img :src="config.API_URL + image.attributes.url" /></li>
                 </ul>
               </div>
               <div class="exzoom_nav"></div>
