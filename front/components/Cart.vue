@@ -1,25 +1,17 @@
 <script setup>
 import { storeToRefs } from 'pinia'
 import { useCartStore } from '~/store/cart.ts'
-import useProducts from "~/composables/useProducts";
 const cartStore = useCartStore()
 const { cartItems } = storeToRefs(cartStore)
 const { fetchCart } = cartStore
 const { quantity, removeCartItem } = cartStore
-
 const config = useRuntimeConfig()
-if (process.server) {
-  await fetchCart()
-}
-
-const items = cartItems.value.concat()
-const products = await useProducts(items)
+if (process.server) { await fetchCart()}
+const products = await useProducts(cartItems.value.concat())
 function removeProductItem(idx) {
-  console.log(products.data)
   const id = products.data[idx].id
   products.data.splice(idx, 1)
   removeCartItem(id)
-  console.log(products.data)
 }
 </script>
 

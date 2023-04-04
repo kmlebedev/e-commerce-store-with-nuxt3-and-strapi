@@ -1,4 +1,3 @@
-// Todo
 // https://pinia.vuejs.org/ssr/nuxt.html
 import { defineStore, skipHydrate } from 'pinia'
 import { useLocalStorage } from '@vueuse/core'
@@ -13,9 +12,6 @@ export const useCartStore = defineStore('cartStore', () => {
     }
     function quantity(id: never) {
         return cartItems.value.filter((number, i) => number == id).length
-    }
-    function onInputQuantity() {
-
     }
     async function pushCart() {
         console.log("pull cart", cartItems.value)
